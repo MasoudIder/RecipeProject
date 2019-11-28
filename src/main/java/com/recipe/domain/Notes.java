@@ -1,8 +1,15 @@
 package com.recipe.domain;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+//@Builder
 public class Notes {
 
     @Id
@@ -15,27 +22,9 @@ public class Notes {
     @Lob //this let the property to be large enough
     private String recipeNote;
 
-    public Integer getId() {
-        return id;
-    }
+    /* with @Builder
+     * we can create object of the class like this
+     *  Notes.builder().recipe("***").recipeNote("***").build;
+     * */
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public String getRecipeNote() {
-        return recipeNote;
-    }
-
-    public void setRecipeNote(String recipeNote) {
-        this.recipeNote = recipeNote;
-    }
 }
